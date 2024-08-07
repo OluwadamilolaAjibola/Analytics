@@ -5,6 +5,7 @@
  oi.id as orderitem_id,
  oi.order_id as order_id,
  oi.user_id as user_id,
+ e.id as event_id,
  oi.product_id as product_id,
  oi.inventory_item_id as inventory_id,
  oi.status as order_status,
@@ -25,5 +26,11 @@
 
  left join {{ref("Products")}} as p
  on oi.product_id = p.id
+
+ left join {{ref("Users")}} as u
+ on oi.user_id = u.id
+
+ left join {{ref("Events")}} as e
+ on e.user_id = u.id
  
- group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,16
+ group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,17
