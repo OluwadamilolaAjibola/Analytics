@@ -15,7 +15,7 @@
   on dor.order_id = fc.order_id
 
   join
-  {{ref("dim_product")}} ad dp
+  {{ref("dim_product")}} as dp
   on dp.product_id = fc.product_id
 
   join

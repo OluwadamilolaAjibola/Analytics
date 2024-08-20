@@ -9,11 +9,11 @@ du.country,
 fc.Amount,
 count (dor.order_id) as total_orders,
 case 
-   when dor.created_at < current_date - interval '6 months' then 'At Risk'
+   when date(dor.created_at) < current_date - interval 6 month then 'At Risk'
    else 'Active'
-   end as customer_status
+end as customer_status
 
-   from 
+from 
    {{ref("dim_users")}} as du
 
    join
@@ -24,4 +24,4 @@ case
    {{ref("dim_orders")}} as dor
    on dor.order_id = fc.order_id
 
-   group by 1,2,3,4,5,6
+group by 1,2,3,4,5,6,8
