@@ -3,11 +3,11 @@
   select
 dor.order_id,
 dd.center_name as distribution_center,
-timestampdiff (day, dor.created_at, fc.ordershippeddate) as fulfilment_time,
-timestampdiff (day, fc.ordershippeddate, fc.deliverydate) as delivery_time,
+timestamp_diff (dor.created_at, fc.ordershippeddate, day) as fulfilment_time,
+timestamp_diff (fc.ordershippeddate, fc.deliverydate, day) as delivery_time,
 case
-   when fc.order_status = 'Complete' then 'On Time',
-   when fc.order_status = 'shipped' then 'In Progress',
+   when fc.order_status = 'Complete' then 'On Time'
+   when fc.order_status = 'shipped' then 'In Progress'
    when fc.order_status = 'processing' then 'Delayed'
    else 'cancelled'
    end as delivery_status
@@ -16,7 +16,7 @@ case
    join
 
    {{ ref("fct_order_items")}} as fc 
-   on o.order_id = fc.order_id
+   on dor.order_id = fc.order_id
 
    join
    {{ref("dim_distribution_centers")}} as dd
