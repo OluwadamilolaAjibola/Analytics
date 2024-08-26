@@ -3,25 +3,23 @@ sources:
     database: Analyticcs
     schema: public
     tables: 
-      - name: Users
+      - name: dim_users
         description: "Table containing all the user information"
         columns:
-          - name: user_id
+          - name: id
             description: "A unique identifier for each user"
           - name: first_name
             description: "First name of the User"
           - name: last_name
             description: "Last name of the User"  
-          - name: email
-            description: "Email of each user"
+          - name: full_name
+            description: " Combination of the first name and the last name of each user"
           - name: age
             description: "Age of each user"
           - name: gender
             description: "The gender of each user"
           - name: state
             description: "The state where each user is located"
-          - name: street_address
-            description: "The street address for each user"
           - name: postal_code
             description: "Postal code for the user address"
           - name: city
@@ -36,22 +34,18 @@ sources:
             description: "The medium each user use to reach the company"
           - name: created_at
             description: "The date each user details was created"
-            
-      - name: Product
+
+      - name: dim_product
         description: "The table containing all the product information"
         columns:
-          - name: id
+          - name: product_id
             description: "Unique identifier for each product"
-          - name: cost
-            description: "The cost price the production of each product"
-          - name: category
+          - name: product_category
             description: "The category each product belong"
-          - name: name
+          - name: product_name
             description: "The product name"
-          - name: brand
+          - name: product_brand
             description: "The brand for each product"
-          - name: retail_price
-            description: "The retail price for each product"
           - name: department
             description: "The department where each product belong"
           - name: sku
@@ -59,7 +53,7 @@ sources:
           - name: distribution_center_id
             description: "The foreign identifier for distribution center for this table"
 
-      - name: orders
+      - name: dim_orders
         description: "The table containing all the order details"
         columns:
           - name: order_id
@@ -72,34 +66,26 @@ sources:
             description: "The gender of the customer who place the order"
           - name: created_at
             description: "The date when the order was placed"
-          - name: returned_at
-            description: "The date when the order was returned"
           - name: shipped_at
             description: "The date the ordered product was shipped out"
-          - name: delivered_at
-            description: "The date the product was delivered to the customer"
           - name: num_of_item
             description: "The number of product each custmer ordered"
 
-      - name: inventory_items
+      - name: dim_inventory_items
         description: "The table containing all the inventory details "
         columns:
-          - name: id
+          - name: inventory_id
             description: "Unique identifier for each product inventory"
           - name: product_id
             description: "The foreign identifier for product in this table"
           - name: created_at
-            description: 	"The date each product inventory was created"
-          - name: sold_at
-            description: "The date the product were sold"
+            description: 	"The date each product inventory was created"       
           - name: cost
             description: "The cost of production for each product"
           - name: product_category
             description: "The category each product belong"
           - name: product_name
             description: "The name of the product"
-          - name: product_brand
-            description: "The brand for each product"
           - name: product_retail_price
             description: "The retail price for each product"
           - name: product_department
@@ -109,22 +95,18 @@ sources:
           - name: product_distribution_center_id
             description: "The foreign identifier for distribution center on this table"
 
-      - name: events
+      - name: dim_events
         columns:
-          - name: id
+          - name: event_id
             description: "unique identifier for each event"
           - name: user_id
             description: "Foreign identifier for user on this table"
           - name: sequence_number
             description: "The sequence number"
-          - name: session_id
-            description: "Each session id"
           - name: created_at
             description: "The date the event was created"
-          - name: ip_address
-            description: "The ip address for the browser"
           - name: city
-            description: "The city where the event were held or happened"
+            description: 'The city where the event were held or happened'
           - name: state
             description: "The state where the event were held or happened"
           - name: postal_code
@@ -133,51 +115,20 @@ sources:
             description: "The type of browser used for the event"
           - name: traffic_source
             description: "The traffic source for the event"
-          - name: uri
-            description: "URI for the event"
           - name: event_type
             description: "Different type of event"
-          
-      - name: distribution_centers
+
+      - name: dim_distribution_centers
         description: "The table containing all the distribution centers details"
         columns:
-          - name: id
+          - name: distribution_id
             description: "unique identifier for each distribution center"
-          - name: name
+          - name: center_name
             description: "The name of the distribution center"
           - name: latitude
             description: "The latitude of the centers"
           - name: longitude
             description: "The longitude of the centers"
 
-      - name: order_items
-        description: "The table containing the order item details"
-        columns:
-          - name: id
-            description: "Unique identifier for each order items"
-          - name: order_id
-            description: "Foreign identifier for order on this table"
-          - name: user_id
-            description: "Foreign identifier for user on this table"
-          - name: product_id
-            description: "Foreign identifier for product on this table"
-          - name: inventory_item_id
-            description: "Foreign identifier for inventory item"
-          - name: status
-            description: "The status of the items"
-          - name: created_at
-            description: "The date the item was created"
-          - name: shipped_at
-            description: "The date the item was shipped out"
-          - name: delivered_at
-            description: "The date the item was delivered"
-          - name: returned_at
-            description: "The date the item was returned"
-          - name: sale_price
-            description: "The cost per item unit"
-          
-      
-  
 
-
-
+             

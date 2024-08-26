@@ -7,7 +7,7 @@
   de.traffic_source,
   de.browser,
   count(distinct du.user_id) as participant,
-  fc.Amount as event_sales
+  sum(fc.Amount) as event_sales
 
   from {{ref("dim_events")}} as de
 
@@ -17,4 +17,4 @@
   left join {{ref("fct_order_items")}} as fc 
   on fc.event_id = de.event_id
 
-  group by 1,2,3,4,5,7
+  group by 1,2,3,4,5

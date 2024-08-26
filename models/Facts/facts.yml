@@ -1,0 +1,42 @@
+sources:
+  - name: dbt_oajibola
+    database: Analyticcs
+    schema: public
+    tables:     
+      - name: fct_order_items
+        description: "The table containing the facts model"
+        columns:
+          - name: orderitem_id
+            description: "Unique identifier for each order items"
+          - name: order_id
+            description: "Foreign identifier for order on this table"
+          - name: user_id
+            description: "Foreign identifier for user on this table"
+          - name: event_id
+            description: "Foreign identifier for event on this table"
+          - name: product_id
+            description: "Foreign identifier for product on this table"
+          - name: inventory_id
+            description: "Foreign identifier for inventory item"
+          - name: order_status
+            description: "The status of the items"
+          - name: ordercreationdate
+            description: "The date the item was created"
+          - name: ordershippeddate
+            description: "The date the item was shipped out"
+          - name: deliverydate
+            description: "The date the item was delivered"
+          - name: order_return_date
+            description: "The date the item was returned"
+          - name: product_cost_price
+            description: "The cost for the production of each product"
+          - name: product_retail_price
+            description: "The retail price for each product"
+          - name: cost_per_unit
+            description: "The cost per item unit"
+          - name: quantity
+            description: "The quantity of item sold"
+          - name: Amount
+            description: "The Total Amount of item sold"
+          - name: distribution_center_id
+            description: "Foreign identifier for distribution center on this table"

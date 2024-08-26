@@ -1,0 +1,165 @@
+sources:
+  - name: dbt_oajibola
+    database: Analyticcs
+    schema: public
+    tables: 
+     - name: Customer_Analysis
+       description: "This table consist of detailed analysis on customer"
+       columns:
+         - name: user_id
+           description: "Unique identifier for each customer"
+         - name: full_name
+           description: "The full name of the customer"
+         - name: age
+           description: "The age of each customer"
+         - name: gender
+           description: "The gender of each customer"
+         - name: country
+           description: "The country for each customer"
+         - name: Amount
+           description: "The Total amount spent by each customer"
+         - name: total_orders
+           description: "The total number of orders each customer has made"
+         - name: customer_status
+           description: "This Show the customer that are still active and the customer the company is at risk of loosing"
+
+    
+     - name: Customer_churn
+       description: "This table show the summary of the company customer churn rate"
+       columns:
+         - name: churned_customers
+           description: "This column show the total number of customer who has stop purchasing"
+         - name: total_customers
+           description: "The total number of customer "
+         - name: churn_rate
+           description: "The column shows the churn rate or percentage"
+
+     - name: Customer_Segmentation      
+       description: ""
+       columns:
+         - name: user_id
+           description: "Unique identifier for each customer"
+         - name: order_count
+           description: "The total number of order"
+         - name: Amount
+           description: "The total amount for the orders"
+
+     - name: Distribution_Efficiency
+       description: "This table show how efficciency of  the distribution center "
+       columns:
+         - name: order_id
+           description: "Unique identifier for the order"
+         - name: distribution_center
+           description: "The name of the each distribution center"
+         - name: fulfilment_time
+           description: "The number of days it took for an order to be processed and shipped out"
+         - name: delivery_time
+           description: "The number of days it took for customer to get their package after shippment"
+         - name: delivery_status
+           description: "The status of each orders"
+
+     - name: Event_Analysis
+       description: "This table shows a detailed event analysis "
+       columns:
+         - name: event_id
+           description: "Unique identifier for the event"
+         - name: event_type
+           description: "The column shows different event type"
+         - name: event_state
+           description: "The state where the event was held"
+         - name: traffic_source
+           description: "The traffic source"
+         - name: browser
+           description: "The brower the user made use of"
+         - name: participant
+           description: "The customer that participated in the event "
+         - name: event_sales
+           description: "The total amount made"
+
+     - name: Product_Performance
+       description: "The table shows detailed Product analysis"
+       columns:
+         - name: product_name
+           description: "The name of each product"
+         - name: total_orders
+           description: "The total number of order"
+         - name: total_ revenue
+           description: "The total amount made"
+         - name: total_returns
+           description: "The total number of order that were returned"
+         - name: Avg_order_value
+           description: "The average worth for each product"
+
+     - name: Product_Return_Rate
+       description: "The table show the product return rate analysis"
+       columns:
+         - name: product_name
+           description: "The name of each product"
+         - name: total_returns
+           description: "The total number of product that were returned"
+         - name: total_sold
+           description: "The total number of product that were sold"
+         - name: return_rate
+           description: "The rate of the product that were return in percentage"
+
+     - name: Sales_Analysis
+       description: "The table shows detailed sales analysis"
+       columns:
+         - name: order_id
+           description: "Unique identifier for order"
+         - name: total_amount
+           description: "The total amount made"
+         - name: created_at
+           description: "The date the order was made or created"
+         - name: distribution_center
+           description: "The name of the distribution center"
+         - name: product_name
+           description: "The name for each product"
+         - name: country
+           description: "the column shows the country"
+
+     - name: Sales_Trend_Analysis
+       description: "The table shows the sales monthly trend"
+       columns:
+         - name: month
+           description: "Each month of the year"
+         - name: total_amount
+           description: "Total amount made on monthly basis"
+
+     - name: total_order_summary
+       description:  "The table shows a detailed analysis on order"
+       columns:
+         - name: orderitem_id
+           description: "Unique identifier for order item"
+         - name: order_id
+           description: "Uniqu identifier for order"
+         - name: product_name
+           description: "The name for each product"
+         - name: product_category
+           description: "The category for each product"
+         - name: user_full_name
+           description: "The user full name"
+         - name: user_country
+           description: "The user country"
+         - name: user_city
+           description: "The user city"
+         - name: user_state
+           description: "The user state"
+         - name: user_postal_code
+           description: "The user postal code"
+         - name: ordercreationdate
+           description: "The date the order were created"
+         - name: quantity
+           description: "The quantity of product sold"
+         - name: product_cost_price
+           description: "The cost for each product production"
+         - name: cost_per_unit
+           description: "The cost per unit for each product"
+         - name: total_amount
+           description: "The total amount made"
+
+
+        
+        
+
+       

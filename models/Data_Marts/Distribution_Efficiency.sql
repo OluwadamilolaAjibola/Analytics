@@ -3,8 +3,8 @@
   select
 dor.order_id,
 dd.center_name as distribution_center,
-timestamp_diff (dor.created_at, fc.ordershippeddate, day) as fulfilment_time,
-timestamp_diff (fc.ordershippeddate, fc.deliverydate, day) as delivery_time,
+timestamp_diff (fc.ordershippeddate, dor.created_at, day) as fulfilment_time,
+timestamp_diff (fc.deliverydate, fc.ordershippeddate, day) as delivery_time,
 case
    when fc.order_status = 'Complete' then 'On Time'
    when fc.order_status = 'shipped' then 'In Progress'
