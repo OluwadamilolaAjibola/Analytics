@@ -14,7 +14,7 @@
   fc.quantity,
   fc.product_cost_price,
   fc.cost_per_unit,
-  fc.Amount
+  sum(fc.Amount) as total_amount
   
   from {{ ref("fct_order_items")}} as fc
   left join {{ref ("dim_product")}} as dp
@@ -22,4 +22,4 @@
 
   left join {{ ref ("dim_users")}} as du
   on fc.user_id = du.user_id
- 
+  group by 1,2,3,4,5,6,7,8,9,10,11,12,13

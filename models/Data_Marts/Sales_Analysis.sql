@@ -2,7 +2,7 @@
 
   select
   dor.order_id,
-  fc.Amount,
+  sum(fc.Amount) as total_amount,
   dor.created_at,
   dc.center_name as distribution_center,
   dp.product_name,
@@ -25,3 +25,5 @@
   join
   {{ref("dim_distribution_centers")}} as dc
   on dc.distribution_id = fc.distribution_center_id
+
+  group by 1,3,4,5,6
