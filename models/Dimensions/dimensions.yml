@@ -1,6 +1,6 @@
 sources:
   - name: dbt_oajibola
-    database: Analyticcs
+    database: analyticcs.dbt_oajibola
     schema: public
     tables: 
       - name: dim_users
